@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "501628008132",
+    "firebase_url": "https://begin-in-france.firebaseio.com",
+    "project_id": "begin-in-france",
+    "storage_bucket": "begin-in-france.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:501628008132:android:d32b35ca0e5c0956c03b91",
+        "android_client_info": {
+          "package_name": "com.example.france_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "501628008132-j2selldqsvnl8iib1p75l06fivrjqmk1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.france_app",
+            "certificate_hash": "2f7153d9d88833c5cd3db30eee330d97c85025f2"
+          }
+        },
+        {
+          "client_id": "501628008132-laacdue2ljhqsi7kp2n5dv8k2eacmn15.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDTszRz0XDhRCzRA6nrWJ-JaW3WxuQEVas"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "501628008132-laacdue2ljhqsi7kp2n5dv8k2eacmn15.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
