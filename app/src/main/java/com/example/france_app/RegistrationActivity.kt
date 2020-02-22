@@ -47,7 +47,7 @@ class RegistrationActivity(var users: Users) : AppCompatActivity() {
 
             if (TextUtils.isEmpty(email) && TextUtils.isEmpty(password)) {
                 var users = Users(email, password, firstname, lastname, age)
-                Toast.makeText(this, "Please fill all the gaps", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, "Please fill all the gap", Toast.LENGTH_LONG).show()
             }
             registerUser(email, password)
         }
