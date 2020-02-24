@@ -19,7 +19,7 @@ class Second_Activity : AppCompatActivity() {
         //To begin the third activity
         val mButton = findViewById<Button>(R.id.buttonNext2)
         mButton.setOnClickListener {
-            val newActivity2 = Intent(this@Second_Activity, RegistrationActivity::class.java)
+            val newActivity2 = Intent(this@Second_Activity, CreateAccount::class.java)
             startActivity(newActivity2)
         }
 
