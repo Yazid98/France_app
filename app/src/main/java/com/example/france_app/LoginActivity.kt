@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.FirebaseAuth
+import kotlinx.android.synthetic.main.activity_login.*
 
 @Suppress("RedundantSamConstructor")
 class LoginActivity : AppCompatActivity() {
@@ -51,6 +52,12 @@ class LoginActivity : AppCompatActivity() {
                         }
                     })
             }
+        }
+
+        reset_password_button.setOnClickListener {
+            val newActivity3 = Intent(this, ResetPassword::class.java)
+            startActivity(newActivity3)
+            finish()
         }
     }
 }

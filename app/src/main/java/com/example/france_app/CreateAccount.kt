@@ -6,7 +6,6 @@ import android.app.ProgressDialog
 import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
-import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
@@ -76,6 +75,19 @@ class CreateAccount : AppCompatActivity() {
                     .addOnCompleteListener { task ->
 
                         if (task.isSuccessful) {
+                            //Verify email address
+                            val mUser = mAuth.currentUser
+                            mUser?.sendEmailVerification()?.addOnCompleteListener { task ->
+                                if (task.isSuccessful) {
+                                    newActivity()
+                                    Toast.makeText(
+                                        this,
+                                        "Email verification sent!",
+                                        Toast.LENGTH_LONG
+                                    ).show()
+                                }
+                            }
+
                             saveUserInfo(
                                 firstName,
                                 lastName,
@@ -85,7 +97,8 @@ class CreateAccount : AppCompatActivity() {
                                 progressDialog
                             )
 
-                            verifyEmail()
+
+                            //verifyEmail()
 
                         } else {
                             val message = task.exception!!.toString()
@@ -98,15 +111,23 @@ class CreateAccount : AppCompatActivity() {
         }
     }
 
-    private fun verifyEmail() {
-        val mAuth = FirebaseAuth.getInstance()
-        var mUser = mAuth.currentUser
-        mUser?.sendEmailVerification()?.addOnCompleteListener { task ->
-            if (task.isSuccessful) {
-                Log.d(TAG, "Email sent.")
+    /*private fun verifyEmail() {
+        val mAuth: FirebaseAuth = FirebaseAuth.getInstance()
+        val mUser = mAuth.currentUser
+        mUser!!.sendEmailVerification()
+            .addOnCompleteListener{ task ->
+                if (task.isSuccessful) {
+                    Toast.makeText(this@CreateAccount,
+                        "Verification email sent to " + mUser.email,
+                        Toast.LENGTH_SHORT).show()
+                } else {
+                    Log.e(TAG, "sendEmailVerification", task.exception)
+                    Toast.makeText(this@CreateAccount,
+                        "Failed to send verification email.",
+                        Toast.LENGTH_SHORT).show()
+                }
             }
-        }
-    }
+    }*/
 
     private fun saveUserInfo(
         firstName: String,
@@ -131,7 +152,7 @@ class CreateAccount : AppCompatActivity() {
         FirebaseAuth.getInstance().signOut()
         progressDialog.dismiss()
 
-        newActivity()
+        //newActivity()
     }
 
     private fun newActivity() {

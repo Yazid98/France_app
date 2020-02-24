@@ -4,19 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeActivity"
-    android:background="@drawable/background">
+    tools:context=".HomeActivity">
 
     <TextView
         android:id="@+id/label_begin"
-        android:layout_width="232dp"
-        android:layout_height="393dp"
+        android:layout_width="332dp"
+        android:layout_height="225dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="176dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
-        android:text="Begin In France"
+        android:text="WeShare ! Le guide de référence pour les étudiants"
         android:textSize="36sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.394"
