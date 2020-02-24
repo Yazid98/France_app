@@ -1,12 +1,12 @@
 package com.example.france_app
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.FirebaseAuth
 
@@ -14,9 +14,9 @@ import com.google.firebase.auth.FirebaseAuth
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
-    private lateinit var emailEt : EditText
-    private lateinit var passwordEt : EditText
-    private lateinit var loginBtn : Button
+    private lateinit var emailEt: EditText
+    private lateinit var passwordEt: EditText
+    private lateinit var loginBtn: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,29 +28,28 @@ class LoginActivity : AppCompatActivity() {
 
         auth = FirebaseAuth.getInstance()
 
-        loginBtn.setOnClickListener(){
+        loginBtn.setOnClickListener {
 
-            var email : String = emailEt.text.toString()
-            var password : String = passwordEt.text.toString()
+            var email: String = emailEt.text.toString()
+            var password: String = passwordEt.text.toString()
 
-            if (TextUtils.isEmpty(email) || TextUtils.isEmpty(password)){
-                Toast.makeText(this, "Veuillez renseigner tout les champs", Toast.LENGTH_LONG).show()
-            }
-            else
-            {
-                auth.signInWithEmailAndPassword(email, password).addOnCompleteListener (this, OnCompleteListener { task ->
-                    if ( task.isSuccessful){
-                        Toast.makeText(this, "Connexion réussie!", Toast.LENGTH_LONG).show()
-                        //and I put the next activity
-                        val newActivity2 = Intent (this, Home_Activity::class.java)
-                        startActivity(newActivity2)
-                        finish()
-                    }
-                    else
-                    {
-                        Toast.makeText(this,"Connexion échouée", Toast.LENGTH_LONG ).show()
-                    }
-                })
+            if (TextUtils.isEmpty(email) || TextUtils.isEmpty(password)) {
+                Toast.makeText(this, "Veuillez renseigner tout les champs", Toast.LENGTH_LONG)
+                    .show()
+            } else {
+                auth.signInWithEmailAndPassword(email, password)
+                    .addOnCompleteListener(this, OnCompleteListener { task ->
+                        if (task.isSuccessful) {
+                            Toast.makeText(this, "Connexion réussie!", Toast.LENGTH_LONG).show()
+
+                            //and I put the next activity
+                            val newActivity2 = Intent(this, HomeActivity::class.java)
+                            startActivity(newActivity2)
+                            finish()
+                        } else {
+                            Toast.makeText(this, "Connexion échouée", Toast.LENGTH_LONG).show()
+                        }
+                    })
             }
         }
     }

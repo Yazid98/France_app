@@ -6,6 +6,7 @@ import android.app.ProgressDialog
 import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
+import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
@@ -15,7 +16,7 @@ import kotlinx.android.synthetic.main.activity_create_account.*
 
 class CreateAccount : AppCompatActivity() {
 
-
+    private val TAG = "CreateAccount"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create_account)
@@ -27,6 +28,7 @@ class CreateAccount : AppCompatActivity() {
 
 
     private fun createAccount() {
+
         val firstName = et_first_name.text.toString()
         val lastName = et_last_name.text.toString()
         val dateNaissance = et_dateNaissance.text.toString()
@@ -82,6 +84,9 @@ class CreateAccount : AppCompatActivity() {
                                 password,
                                 progressDialog
                             )
+
+                            verifyEmail()
+
                         } else {
                             val message = task.exception!!.toString()
                             Toast.makeText(this, "Error $message", Toast.LENGTH_LONG).show()
@@ -93,8 +98,24 @@ class CreateAccount : AppCompatActivity() {
         }
     }
 
+    private fun verifyEmail() {
+        val mAuth = FirebaseAuth.getInstance()
+        var mUser = mAuth.currentUser
+        mUser?.sendEmailVerification()?.addOnCompleteListener { task ->
+            if (task.isSuccessful) {
+                Log.d(TAG, "Email sent.")
+            }
+        }
+    }
 
-    private fun saveUserInfo(firstName: String, lastName: String, dateNaissance: String, email: String, password: String, progressDialog: ProgressDialog) {
+    private fun saveUserInfo(
+        firstName: String,
+        lastName: String,
+        dateNaissance: String,
+        email: String,
+        password: String,
+        progressDialog: ProgressDialog
+    ) {
 
         val userId = FirebaseAuth.getInstance().currentUser!!.uid
 
@@ -113,8 +134,8 @@ class CreateAccount : AppCompatActivity() {
         newActivity()
     }
 
-    private fun newActivity(){
-        val intent = Intent(this, Home_Activity::class.java)
+    private fun newActivity() {
+        val intent = Intent(this, HomeActivity::class.java)
         startActivity(intent)
     }
 }

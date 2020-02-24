@@ -1,9 +1,9 @@
 package com.example.france_app
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import androidx.appcompat.app.AppCompatActivity
 
 class debut_app : AppCompatActivity() {
 
@@ -19,7 +19,7 @@ class debut_app : AppCompatActivity() {
 
         var mButton2 = findViewById<Button>(R.id.button_nouvel_inscrit)
         mButton2.setOnClickListener{
-            val newActivity2 = Intent ( this@debut_app, FirstActivity::class.java)
+            val newActivity2 = Intent(this@debut_app, HomeActivity::class.java)
             startActivity(newActivity2)
         }
     }
