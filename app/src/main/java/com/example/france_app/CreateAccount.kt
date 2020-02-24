@@ -111,24 +111,6 @@ class CreateAccount : AppCompatActivity() {
         }
     }
 
-    /*private fun verifyEmail() {
-        val mAuth: FirebaseAuth = FirebaseAuth.getInstance()
-        val mUser = mAuth.currentUser
-        mUser!!.sendEmailVerification()
-            .addOnCompleteListener{ task ->
-                if (task.isSuccessful) {
-                    Toast.makeText(this@CreateAccount,
-                        "Verification email sent to " + mUser.email,
-                        Toast.LENGTH_SHORT).show()
-                } else {
-                    Log.e(TAG, "sendEmailVerification", task.exception)
-                    Toast.makeText(this@CreateAccount,
-                        "Failed to send verification email.",
-                        Toast.LENGTH_SHORT).show()
-                }
-            }
-    }*/
-
     private fun saveUserInfo(
         firstName: String,
         lastName: String,
