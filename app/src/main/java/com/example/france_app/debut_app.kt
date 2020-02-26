@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 
+@Suppress("ClassName")
 class debut_app : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,7 +20,7 @@ class debut_app : AppCompatActivity() {
 
         var mButton2 = findViewById<Button>(R.id.button_nouvel_inscrit)
         mButton2.setOnClickListener{
-            val newActivity2 = Intent(this@debut_app, HomeActivity::class.java)
+            val newActivity2 = Intent(this@debut_app, FirstActivity::class.java)
             startActivity(newActivity2)
         }
     }

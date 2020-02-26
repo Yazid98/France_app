@@ -4,20 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Second_Activity"
-    android:background="@drawable/background">
+    tools:context=".Second_Activity">
 
     <ImageView
         android:id="@+id/logo1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="192dp"
+        android:layout_marginBottom="140dp"
         app:layout_constraintBottom_toTopOf="@+id/info2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.445"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.021"
+        app:layout_constraintVertical_bias="0.891"
         tools:srcCompat="@tools:sample/avatars[0]" />
 
     <TextView
@@ -28,8 +27,8 @@
         android:layout_marginRight="16dp"
         android:layout_marginBottom="80dp"
         android:fontFamily="@font/alike_angular"
+        android:textColor="#020101"
         android:text="Besoin d'aide pour les procédures administratives ? On es là pour toi!"
-        android:textColor="#E9E2E2"
         android:textSize="18sp"
         android:textStyle="bold"
         app:autoSizeTextType="none"
@@ -40,12 +39,14 @@
 
     <Button
         android:id="@+id/buttonNext2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="110dp"
+        android:layout_height="59dp"
         android:layout_marginEnd="4dp"
         android:layout_marginRight="4dp"
         android:layout_marginBottom="92dp"
+        android:background="@color/colorAccent"
         android:text="Commencer"
+        android:textColor="@android:color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 

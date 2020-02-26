@@ -1,33 +1,81 @@
 package com.example.france_app
 
-import android.content.Intent
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.google.firebase.auth.FirebaseAuth
-import kotlinx.android.synthetic.main.activity_home_.*
+import androidx.fragment.app.FragmentTransaction
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class HomeActivity : AppCompatActivity() {
 
+    lateinit var homeFragment: HomeFragment
+    lateinit var notificationFragment: NotificationFragment
+    lateinit var accountFragment: AccountFragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home_)
 
-        logout_button.setOnClickListener {
+        val bottomNavigation: BottomNavigationView = findViewById(R.id.mainNav)
+
+
+        homeFragment = HomeFragment()
+        supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.mainFrame, homeFragment)
+            .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+            .commit()
+
+        bottomNavigation.setOnNavigationItemReselectedListener { item ->
+            when (item.itemId) {
+                R.id.nav_home -> {
+                    homeFragment = HomeFragment()
+                    supportFragmentManager
+                        .beginTransaction()
+                        .replace(R.id.mainFrame, homeFragment)
+                        .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                        .commit()
+                }
+
+                R.id.nav_notif -> {
+                    notificationFragment = NotificationFragment()
+                    supportFragmentManager
+                        .beginTransaction()
+                        .replace(R.id.mainFrame, notificationFragment)
+                        .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                        .commit()
+                }
+
+                R.id.nav_account -> {
+                    accountFragment = AccountFragment()
+                    supportFragmentManager
+                        .beginTransaction()
+                        .replace(R.id.mainFrame, accountFragment)
+                        .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                        .commit()
+                }
+            }
+            true
+        }
+
+
+//_____________________________________________________-Deconnexion-Button________________________________________________________________________________
+        /*logout_button.setOnClickListener {
             FirebaseAuth.getInstance().signOut()
             Toast.makeText(
                 this@HomeActivity,
-                "Deconnexion réussie !",
+                "Deconnexion !",
                 Toast.LENGTH_SHORT
             ).show()
 
             newActivity()
-        }
+        }*/
+        //_____________________________________________________-End-Deconnexion-Button________________________________________________________________________________
     }
 
-    private fun newActivity() {
+    /*private fun newActivity() {
         val intent = Intent(this, LoginActivity::class.java)
         startActivity(intent)
-    }
+    }*/
+
+
 }

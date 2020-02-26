@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FirstActivity"
-    android:background="@drawable/background">
+    tools:context=".FirstActivity">
 
     <ImageView
         android:id="@+id/logo1"
@@ -29,7 +28,7 @@
         android:layout_marginBottom="56dp"
         android:fontFamily="@font/alike_angular"
         android:text="Tu viens d'arriver en France ? Cette appli est faite pour toi!"
-        android:textColor="#FFFAFA"
+        android:textColor="#020101"
         android:textSize="18sp"
         android:textStyle="bold"
         app:autoSizeTextType="none"
@@ -45,6 +44,8 @@
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginBottom="52dp"
+        android:background="@color/colorAccent"
+        android:textColor="#FFFFFF"
         android:text="Suivant"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
