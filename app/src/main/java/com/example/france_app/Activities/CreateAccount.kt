@@ -1,17 +1,20 @@
 @file:Suppress("DEPRECATION")
 
-package com.example.france_app
+package com.example.france_app.Activities
 
 import android.app.ProgressDialog
-import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
+import android.util.Patterns
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.france_app.R
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_create_account.*
+import java.util.regex.Pattern
+
 
 class CreateAccount : AppCompatActivity() {
 
@@ -22,9 +25,28 @@ class CreateAccount : AppCompatActivity() {
 
         btn_register.setOnClickListener {
             createAccount()
+            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
+
+        }
+
+        //Retour au debut de l'appli
+        back_to_debut.setOnClickListener {
+            goToActivity<debut_app>()
+        }
+
+        //Validation des Champs Email et password
+        et_email.validate {
+            et_email.error =
+                if (isValideEmail(et_email.text.toString())) null else "Format de l'email non valide"
+        }
+
+        et_password.validate {
+            et_password.error =
+                if (isValidePassword(et_password.text.toString())) null else "Votre mot de passe doit contenir 8 caractères au minimums dont une lettre majuscule, une lettre miniscule, et un chiffre entre 0 et 9"
         }
     }
 
+    //________________________________________________________________________________________________Creation Compte ________________________________________________________________________________________________________
 
     private fun createAccount() {
 
@@ -37,27 +59,27 @@ class CreateAccount : AppCompatActivity() {
         when {
             TextUtils.isEmpty(firstName) -> Toast.makeText(
                 this,
-                "Enter first name",
+                "Remplissez tous les champs",
                 Toast.LENGTH_SHORT
             ).show()
             TextUtils.isEmpty(lastName) -> Toast.makeText(
                 this,
-                "Enter last name",
+                "Remplissez tous les champs",
                 Toast.LENGTH_SHORT
             ).show()
             TextUtils.isEmpty(dateNaissance) -> Toast.makeText(
                 this,
-                "Enter your birthday name",
+                "Remplissez tous les champs",
                 Toast.LENGTH_SHORT
             ).show()
             TextUtils.isEmpty(email) -> Toast.makeText(
                 this,
-                "Enter email address",
+                "Remplissez tous les champs",
                 Toast.LENGTH_SHORT
             ).show()
             TextUtils.isEmpty(password) -> Toast.makeText(
                 this,
-                "Enter your password",
+                "Remplissez tous les champs",
                 Toast.LENGTH_SHORT
             ).show()
 
@@ -79,12 +101,12 @@ class CreateAccount : AppCompatActivity() {
                             val mUser = mAuth.currentUser
                             mUser?.sendEmailVerification()?.addOnCompleteListener { task ->
                                 if (task.isSuccessful) {
-                                    newActivity()
                                     Toast.makeText(
                                         this,
                                         "Email verification sent!",
                                         Toast.LENGTH_LONG
                                     ).show()
+                                    goToActivity<HomeActivity>()
                                 }
                             }
 
@@ -96,7 +118,6 @@ class CreateAccount : AppCompatActivity() {
                                 password,
                                 progressDialog
                             )
-
 
                             //verifyEmail()
 
@@ -110,7 +131,10 @@ class CreateAccount : AppCompatActivity() {
             }
         }
     }
+    //_____________________________________Fin Creation Compte____________________________________________________________________________
 
+
+    //Sauvegarde des informations dans la BDD
     private fun saveUserInfo(
         firstName: String,
         lastName: String,
@@ -134,11 +158,23 @@ class CreateAccount : AppCompatActivity() {
         FirebaseAuth.getInstance().signOut()
         progressDialog.dismiss()
 
-        //newActivity()
     }
 
-    private fun newActivity() {
-        val intent = Intent(this, HomeActivity::class.java)
-        startActivity(intent)
+
+    //Validation Email et Mot de passe
+
+    private fun isValideEmail(email: String): Boolean {
+        val pattern = Patterns.EMAIL_ADDRESS
+        return pattern.matcher(email).matches()
     }
+
+    //Permet d'imposer un mot de passe spécifiqueSS
+    private fun isValidePassword(password: String): Boolean {
+        val pattern: Pattern
+        val PASSWORD_PATTERN = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=\\S+$).{8,}$"
+        pattern = Pattern.compile(PASSWORD_PATTERN)
+        return pattern.matcher(password).matches()
+    }
+
+    // Fin Validation Email et Mot de passe
 }

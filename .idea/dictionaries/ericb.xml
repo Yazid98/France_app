@@ -1,11 +1,16 @@
 <component name="ProjectDictionaryState">
   <dictionary name="ericb">
     <words>
+      <w>cardview</w>
+      <w>compte</w>
+      <w>datalist</w>
       <w>etemail</w>
       <w>etfirstname</w>
       <w>etlastname</w>
       <w>etpassword</w>
+      <w>myadapter</w>
       <w>naissance</w>
+      <w>valide</w>
     </words>
   </dictionary>
 </component>

@@ -5,15 +5,16 @@
     android:id="@+id/deja_inscrit"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".debut_app">
+    android:background="@color/colorPrimaryDark"
+    tools:context=".Activities.debut_app">
 
     <Button
         android:id="@+id/button_deja_inscrit"
         android:layout_width="163dp"
         android:layout_height="66dp"
-        android:layout_marginTop="140dp"
+        android:layout_marginTop="128dp"
+        android:background="@drawable/button_bleu"
         android:text="Déjà inscrit ? Connecte toi!"
-        android:background="@color/colorAccent"
         android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,14 +24,14 @@
         android:id="@+id/button_nouvel_inscrit"
         android:layout_width="238dp"
         android:layout_height="106dp"
+        android:background="@drawable/button_bleu"
         android:text="Tu es nouveau ? Découvre notre application !"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:background="@color/colorAccent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.572"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button_deja_inscrit"
-        app:layout_constraintVertical_bias="0.384" />
+        app:layout_constraintVertical_bias="0.363" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

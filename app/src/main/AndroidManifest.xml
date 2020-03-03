@@ -12,35 +12,31 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <activity
-            android:name=".ResetPassword"
-            android:parentActivityName=".Second_Activity"></activity>
-
+            android:name=".Activities.ResetPassword"
+            android:parentActivityName=".Activities.Second_Activity" />
         <activity
-            android:name=".CreateAccount"
+            android:name=".Activities.CreateAccount"
             android:exported="true"
-            android:parentActivityName=".Second_Activity">
+            android:parentActivityName=".Activities.Second_Activity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Second_Activity" />
+                android:value=".Activities.Second_Activity" />
         </activity>
-
         <activity
-            android:name=".HomeActivity"
+            android:name=".Activities.HomeActivity"
             android:exported="true" />
-
         <activity
-            android:name=".LoginActivity"
+            android:name=".Activities.LoginActivity"
             android:exported="true"
-            android:parentActivityName=".debut_app">
+            android:parentActivityName=".Activities.debut_app">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".debut_app" />
+                android:value=".Activities.debut_app" />
         </activity>
 
         <activity
-            android:name=".debut_app"
+            android:name=".Activities.debut_app"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -50,30 +46,27 @@
         </activity>
 
         <activity
-            android:name=".Second_Activity"
+            android:name=".Activities.Second_Activity"
             android:exported="true"
-            android:parentActivityName=".FirstActivity">
+            android:parentActivityName=".Activities.FirstActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".FirstActivity" />
+                android:value=".Activities.FirstActivity" />
         </activity>
-
         <activity
-            android:name=".FirstActivity"
+            android:name=".Activities.FirstActivity"
             android:exported="true"
-            android:parentActivityName=".debut_app">
+            android:parentActivityName=".Activities.debut_app">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".debut_app" />
+                android:value=".Activities.debut_app" />
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
-
     </application>
 
 </manifest>

@@ -1,12 +1,12 @@
 @file:Suppress("RedundantSamConstructor")
 
-package com.example.france_app
+package com.example.france_app.Activities
 
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.france_app.R
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_reset_password.*
@@ -72,8 +72,7 @@ class ResetPassword : AppCompatActivity() {
     }
 
     private fun newActivity() {
-        val newActivity3 = Intent(this, LoginActivity::class.java)
-        startActivity(newActivity3)
+        goToActivity<LoginActivity>()
         finish()
     }
 

@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Second_Activity">
+    android:background="@color/colorPrimaryDark"
+    tools:context=".Activities.Second_Activity">
 
     <ImageView
         android:id="@+id/logo1"
@@ -27,7 +28,7 @@
         android:layout_marginRight="16dp"
         android:layout_marginBottom="80dp"
         android:fontFamily="@font/alike_angular"
-        android:textColor="#020101"
+        android:textColor="@android:color/white"
         android:text="Besoin d'aide pour les procédures administratives ? On es là pour toi!"
         android:textSize="18sp"
         android:textStyle="bold"

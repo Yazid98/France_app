@@ -1,6 +1,6 @@
 @file:Suppress("DEPRECATION")
 
-package com.example.france_app
+package com.example.france_app.Activities
 
 import android.content.Intent
 import android.os.Bundle
@@ -13,9 +13,11 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.france_app.R
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_login.*
+
 
 @Suppress("RedundantSamConstructor")
 class LoginActivity : AppCompatActivity() {
@@ -32,22 +34,34 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
+        //For Google Registration
+        //val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+        //    .requestIdToken(getString(R.string.default_web_client_id))
+        // .requestEmail()
+        // .build()
+        // val mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
+
+
         //For show and hide the password
         ivShowPassword.setOnClickListener {
             isShowPass = !isShowPass
             showPassword(isShowPass)
         }
-
         showPassword(isShowPass)
 
         //_____________________________________________________________________________________________________________________________________
 
+        //For Remember Me
         val pref = PreferenceManager.getDefaultSharedPreferences(this)
         pref.apply {
             val email = getString("Email", "")
             val password = getString("Password", "")
             login_email.setText(email)
             login_password.setText(password)
+        }
+
+        rememberMeCheckBox.setOnClickListener {
+            rememberMe(emailEt, passwordEt)
         }
 
         emailEt = findViewById(R.id.login_email)
@@ -81,13 +95,9 @@ class LoginActivity : AppCompatActivity() {
             }
         }
 
-        rememberMeCheckBox.setOnClickListener {
-            rememberMe(emailEt, passwordEt)
-        }
-
+        //Reset password button
         reset_password_button.setOnClickListener {
-            val newActivity3 = Intent(this, ResetPassword::class.java)
-            startActivity(newActivity3)
+            goToActivity<ResetPassword>()
             finish()
         }
     }
