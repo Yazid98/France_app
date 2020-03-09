@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimaryDark"
     tools:context=".Activities.Second_Activity">
 
     <ImageView
@@ -27,8 +26,8 @@
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginBottom="80dp"
-        android:fontFamily="@font/alike_angular"
-        android:textColor="@android:color/white"
+        android:fontFamily="@font/cardo"
+        android:textColor="@android:color/primary_text_light"
         android:text="Besoin d'aide pour les procédures administratives ? On es là pour toi!"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -45,7 +44,8 @@
         android:layout_marginEnd="4dp"
         android:layout_marginRight="4dp"
         android:layout_marginBottom="92dp"
-        android:background="@color/colorAccent"
+        android:background="@drawable/button_bleu"
+        android:fontFamily="@font/cardo"
         android:text="Commencer"
         android:textColor="@android:color/white"
         app:layout_constraintBottom_toBottomOf="parent"

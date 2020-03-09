@@ -3,100 +3,91 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimaryDark"
     tools:context=".Activities.CreateAccount">
 
 
     <EditText
-        android:layout_alignParentTop="true"
+        android:layout_width="383dp"
         android:id="@+id/et_first_name"
-        android:layout_width="match_parent"
-        android:layout_height="61dp"
-        android:layout_marginTop="12dp"
-        android:background="@drawable/edittext_arrondi"
-        android:padding="12dp"
-        android:ems="10"
-        android:hint="First Name"
-        android:inputType="textPersonName" />
-
-    <EditText
-        android:layout_alignParentStart="true"
-        android:id="@+id/et_last_name"
-        android:layout_width="match_parent"
-        android:layout_height="57dp"
-        android:layout_below="@id/et_first_name"
-        android:layout_alignParentLeft="true"
-        android:layout_marginTop="11dp"
+        android:layout_height="58dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="19dp"
+        android:fontFamily="@font/cardo"
         android:background="@drawable/edittext_arrondi"
         android:ems="10"
-        android:hint="Last Name"
+        android:hint=" Prénom"
         android:inputType="textPersonName"
         android:padding="12dp" />
 
     <EditText
+        android:layout_width="383dp"
+        android:id="@+id/et_last_name"
+        android:layout_height="58dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="87dp"
+        android:fontFamily="@font/cardo"
         android:background="@drawable/edittext_arrondi"
-        android:padding="12dp"
+        android:ems="10"
+        android:hint="Nom"
+        android:inputType="textPersonName"
+        android:padding="12dp" />
+
+    <EditText
+        android:layout_width="383dp"
         android:id="@+id/et_dateNaissance"
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:layout_below="@id/et_last_name"
-        android:layout_marginTop="9dp"
+        android:layout_height="58dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="156dp"
+        android:background="@drawable/edittext_arrondi"
+        android:fontFamily="@font/cardo"
         android:ems="10"
         android:hint="Date de Naissance"
-        android:inputType="text" />
+        android:inputType="date"
+        android:padding="12dp" />
 
     <EditText
-        android:layout_marginTop="78dp"
+        android:layout_width="383dp"
         android:id="@+id/et_email"
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:layout_below="@id/et_last_name"
+        android:layout_height="58dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="225dp"
+        android:fontFamily="@font/cardo"
         android:background="@drawable/edittext_arrondi"
-        android:padding="12dp"
         android:ems="10"
         android:hint="Email"
-        android:inputType="textEmailAddress" />
+        android:inputType="textPersonName"
+        android:padding="12dp" />
 
     <EditText
-        android:background="@drawable/edittext_arrondi"
-        android:padding="12dp"
         android:id="@+id/et_password"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_below="@id/et_email"
-        android:layout_marginTop="11dp"
+        android:layout_width="383dp"
+        android:layout_height="58dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="296dp"
+        android:fontFamily="@font/cardo"
+        android:background="@drawable/edittext_arrondi"
         android:ems="10"
-        android:hint="Password"
-        android:inputType="textPassword" />
+        android:hint="Mot de passe"
+        android:inputType="textPassword"
+        android:padding="12dp" />
 
     <Button
+        android:layout_marginTop="19dp"
         android:id="@+id/btn_register"
         android:layout_width="380dp"
         android:layout_height="67dp"
         android:layout_below="@id/et_password"
         android:layout_centerInParent="true"
-        android:layout_centerVertical="true"
-        android:layout_marginTop="22dp"
+        android:fontFamily="@font/cardo"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:background="@color/colorAccent"
         android:text="Create account"
-        android:textColor="@android:color/white"
-        android:textStyle="bold" />
-
-    <Button
-        android:id="@+id/back_to_debut"
-        android:layout_width="380dp"
-        android:layout_height="67dp"
-        android:layout_below="@id/btn_register"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="84dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginBottom="16dp"
-        android:background="@color/colorAccent"
-        android:padding="20dp"
-        android:text="Back to Start"
         android:textColor="@android:color/white"
         android:textStyle="bold" />
 

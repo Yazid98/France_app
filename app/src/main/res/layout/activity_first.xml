@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimaryDark"
     tools:context=".Activities.FirstActivity">
 
     <ImageView
@@ -27,9 +26,9 @@
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginBottom="56dp"
-        android:fontFamily="@font/alike_angular"
+        android:fontFamily="@font/cardo"
         android:text="Tu viens d'arriver en France ? Cette appli est faite pour toi!"
-        android:textColor="@android:color/white"
+        android:textColor="@android:color/primary_text_light"
         android:textSize="18sp"
         android:textStyle="bold"
         app:autoSizeTextType="none"
@@ -39,13 +38,14 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
+        android:background="@drawable/button_bleu"
         android:id="@+id/buttonNext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginBottom="52dp"
-        android:background="@color/colorAccent"
+        android:fontFamily="@font/cardo"
         android:textColor="#FFFFFF"
         android:text="Suivant"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -5,6 +5,7 @@ import android.widget.Button
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.france_app.R
+import com.example.france_app.goToActivity
 
 class FirstActivity : AppCompatActivity() {
 

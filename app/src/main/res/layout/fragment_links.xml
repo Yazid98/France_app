@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragment.LinksFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="221dp"
+            android:layout_height="141dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="91dp"
+            android:layout_marginLeft="91dp"
+            android:layout_marginTop="196dp"
+            android:layout_marginEnd="99dp"
+            android:layout_marginRight="99dp"
+            android:layout_marginBottom="266dp"
+            android:fontFamily="@font/cardo"
+            android:gravity="center"
+            android:text="Links fragment" />
+
+    </RelativeLayout>
+
+
+</FrameLayout>
