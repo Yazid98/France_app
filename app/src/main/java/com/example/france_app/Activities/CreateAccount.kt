@@ -2,10 +2,12 @@
 
 package com.example.france_app.Activities
 
+import android.app.DatePickerDialog
 import android.app.ProgressDialog
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Patterns
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.france_app.R
 import com.example.france_app.goToActivity
@@ -15,17 +17,64 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_create_account.*
+import java.text.SimpleDateFormat
+import java.util.*
 import java.util.regex.Pattern
 
 
 class CreateAccount : AppCompatActivity() {
-    // Variable for google
 
-
-    private val TAG = "CreateAccount"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create_account)
+
+        //To select calendar when the user wants to choose his birthday
+
+        var date = findViewById<TextView>(R.id.tv_dateNaissance)
+
+        val calendar = Calendar.getInstance()
+
+        val dateSetListener =
+            DatePickerDialog.OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
+                calendar.set(Calendar.YEAR, year)
+                calendar.set(Calendar.MONTH, monthOfYear)
+                calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth)
+
+                val myFormat = "dd/MM/yyyy" // mention the format you need
+                val sdf = SimpleDateFormat(myFormat, Locale.US)
+                date.text = sdf.format(calendar.time)
+            }
+
+        date.setOnClickListener {
+            DatePickerDialog(
+                this, dateSetListener,
+                calendar.get(Calendar.YEAR),
+                calendar.get(Calendar.MONTH),
+                calendar.get(Calendar.DAY_OF_MONTH)
+            ).show()
+        }
+
+        //End of the Calendar selection
+
+        //To introduce the cursor when the user click on the editText
+
+        et_first_name.setOnClickListener {
+            et_first_name.isCursorVisible = true
+        }
+
+        et_last_name.setOnClickListener {
+            et_last_name.isCursorVisible = true
+        }
+
+        et_email.setOnClickListener {
+            et_email.isCursorVisible = true
+        }
+
+        et_password.setOnClickListener {
+            et_password.isCursorVisible = true
+        }
+
+        //End of cursor introducing
 
         //Create account button
         btn_register.setOnClickListener {
@@ -45,11 +94,6 @@ class CreateAccount : AppCompatActivity() {
                 if (isValidePassword(et_password.text.toString())) null else "Votre mot de passe doit contenir 8 caractères au minimums dont une lettre majuscule, une lettre miniscule, et un chiffre entre 0 et 9"
         }
 
-//        et_dateNaissance.validate {
-//            et_dateNaissance.error =
-//                if (isValideBirthday( et_dateNaissance.text.toString() ) ) null else "Votre  date de naissance doit etre sous le format DD/MM/YYYY"
-//        }
-
         //End validation of Email and Password
     }
 
@@ -59,7 +103,7 @@ class CreateAccount : AppCompatActivity() {
 
         val firstName = et_first_name.text.toString()
         val lastName = et_last_name.text.toString()
-        val dateNaissance = et_dateNaissance.text.toString()
+        val dateNaissance = tv_dateNaissance.text.toString()
         val email = et_email.text.toString()
         val password = et_password.text.toString()
 
@@ -149,13 +193,7 @@ class CreateAccount : AppCompatActivity() {
 
     //Function for validation Email and Password
 
-//    private fun isValideBirthday(birthday: String) : Boolean{
-//        val pattern : Pattern
-//        val BIRTHDAY_PATTERN = "dd/MM/yyyy"
-//        pattern = Pattern.compile(BIRTHDAY_PATTERN)
-//        return pattern.matcher(birthday).matches()
-//    }
-
+    //Function for specific email address
     private fun isValideEmail(email: String): Boolean {
         val pattern = Patterns.EMAIL_ADDRESS
         return pattern.matcher(email).matches()

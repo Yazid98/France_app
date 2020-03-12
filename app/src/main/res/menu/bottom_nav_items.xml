@@ -16,4 +16,10 @@
         android:icon="@drawable/ic_world"
         android:title="Liens" />
 
+    <item
+        android:id="@+id/taches_secu"
+        android:icon="@drawable/ic_world"
+        android:title="Sécu"
+        android:visible="false" />
+
 </menu>

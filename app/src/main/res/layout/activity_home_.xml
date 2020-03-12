@@ -6,48 +6,48 @@
     android:layout_height="match_parent"
     tools:context=".Activities.HomeActivity">
 
-
-    <!--    <TextView-->
-    <!--        android:fontFamily="@font/amita"-->
-    <!--        android:id="@+id/textView2"-->
-    <!--        android:layout_width="389dp"-->
-    <!--        android:layout_height="88dp"-->
-    <!--        android:layout_alignParentTop="true"-->
-    <!--        android:layout_alignParentBottom="true"-->
-    <!--        android:layout_centerHorizontal="true"-->
-    <!--        android:layout_marginTop="218dp"-->
-    <!--        android:layout_marginBottom="297dp"-->
-    <!--        android:gravity="center"-->
-    <!--        android:text="Bienvenue dans l'acceuil de WeShare!"-->
-    <!--        android:textColor="@android:color/primary_text_light"-->
-    <!--        android:textSize="25dp"-->
-    <!--        android:textStyle="bold"-->
-    <!--        app:layout_constraintEnd_toEndOf="parent"-->
-    <!--        app:layout_constraintHorizontal_bias="0.666"-->
-    <!--        app:layout_constraintStart_toStartOf="parent"-->
-    <!--        app:layout_constraintTop_toTopOf="parent" /> -->
-
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentBottom="true"
-        android:background="@color/colorGrey"
-        app:itemBackground="@color/colorWhite"
+        android:layout_gravity="bottom"
+        android:background="@color/colorAccentDark"
+        app:itemBackground="@color/colorAccentDark"
         app:menu="@menu/bottom_nav_items" />
 
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/viewPager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@+id/bottom_navigation"></androidx.viewpager.widget.ViewPager>
+        android:layout_height="546dp"
+        android:layout_above="@+id/bottom_navigation"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginBottom="-1dp">
 
-    <FrameLayout
-        android:id="@+id/frame_layout"
-        android:layout_width="match_parent"
-        android:layout_height="542dp"
-        android:layout_above="@id/bottom_navigation"></FrameLayout>
+        <fragment
+            android:id="@+id/listSecu"
+            android:name="com.example.france_app.Fragment.ListTacheSecuFragment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:visibility="invisible"
+            tools:layout="@layout/fragment_list_tache_secu" />
+
+        <FrameLayout
+            android:id="@+id/frame_layout"
+            android:layout_width="match_parent"
+            android:layout_height="542dp"
+            android:layout_above="@id/bottom_navigation"></FrameLayout>
+
+    </androidx.viewpager.widget.ViewPager>
+
 
 </RelativeLayout>

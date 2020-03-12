@@ -1,12 +1,12 @@
 package com.example.france_app.Activities
 
 import android.os.Bundle
-import android.util.Log
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentTransaction
 import androidx.viewpager.widget.ViewPager
 import com.example.france_app.Fragment.LinksFragment
+import com.example.france_app.Fragment.ListTacheSecuFragment
 import com.example.france_app.Fragment.ProceduresFragment
 import com.example.france_app.Fragment.ProfileFragment
 import com.example.france_app.R
@@ -31,13 +31,12 @@ class HomeActivity : AppCompatActivity() {
         setContentView(R.layout.activity_home_)
         mAuth = FirebaseAuth.getInstance()
 
-        setUpViewPager(viewPager)
-
         //For switching with the bottom navigation using viewPager
-        val profilFragment = ProfileFragment()
+        setUpViewPager(viewPager)
+        val proceduresFragment = ProceduresFragment()
         supportFragmentManager
             .beginTransaction()
-            .replace(R.id.frame_layout, profilFragment)
+            .replace(R.id.procedureFragment, proceduresFragment)
             .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
             .commit()
 
@@ -54,9 +53,11 @@ class HomeActivity : AppCompatActivity() {
                 R.id.liens -> {
                     viewPager.currentItem = 2; true
                 }
+
                 else -> false
             }
         }
+
 
         //The addOnPageChangeListener implement method that are used for the pages.
         viewPager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
@@ -77,7 +78,6 @@ class HomeActivity : AppCompatActivity() {
                 } else {
                     bottom_navigation.menu.getItem(0).isChecked = false
                 }
-                Log.d("page", "onPageSelected: " + position)
                 bottom_navigation.menu.getItem(position).isChecked = true
                 prevBottomSelected = bottom_navigation.menu.getItem(position)
 
@@ -86,8 +86,31 @@ class HomeActivity : AppCompatActivity() {
 
     }
 
+//    fun selectFragment(position: Int){
+//
+//        viewPager.setCurrentItem(position, true);
+//        // true is to animate the transaction
+//    }
 
-    //The user will connect automatically if he already signIn
+    //The setUp of the viewPager will adapt the viewPager by dint of the pagerAdapter
+    private fun setUpViewPager(viewPager: ViewPager) {
+
+        val viewPagerAdapter = PagerAdapter(supportFragmentManager)
+
+        var profileFragment = ProfileFragment()
+        val proceduresFragment = ProceduresFragment()
+        val linksFragment = LinksFragment()
+        val listTacheSecuFragment = ListTacheSecuFragment()
+
+        viewPagerAdapter.addFragment(profileFragment)
+        viewPagerAdapter.addFragment(proceduresFragment)
+        viewPagerAdapter.addFragment(linksFragment)
+        viewPagerAdapter.addFragment(listTacheSecuFragment)
+
+        viewPager.adapter = viewPagerAdapter
+    }
+
+    //This method will permit to the user to connect automatically if he already signIn
     // otherwise he will go to the beginning of the app
     override fun onStart() {
         super.onStart()
@@ -98,25 +121,6 @@ class HomeActivity : AppCompatActivity() {
         }
     }
 
-    //The setUp of the viewPager will adapt the viewPager by dint of the pagerAdapter
-    private fun setUpViewPager(viewPager: ViewPager) {
-
-        val viewPagerAdapter = PagerAdapter(supportFragmentManager)
-
-        var profileFragment = ProfileFragment()
-
-        val proceduresFragment = ProceduresFragment()
-
-        val linksFragment = LinksFragment()
-
-        viewPagerAdapter.addFragment(profileFragment)
-
-        viewPagerAdapter.addFragment(proceduresFragment)
-
-        viewPagerAdapter.addFragment(linksFragment)
-
-        viewPager.adapter = viewPagerAdapter
-    }
 }
 
 //Deconnexion_Button
