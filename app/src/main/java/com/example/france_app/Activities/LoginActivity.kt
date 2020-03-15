@@ -4,11 +4,9 @@ package com.example.france_app.Activities
 
 import android.content.Intent
 import android.os.Bundle
-import android.preference.PreferenceManager
 import android.text.method.HideReturnsTransformationMethod
 import android.text.method.PasswordTransformationMethod
 import android.util.Patterns
-import android.view.Gravity
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -53,7 +51,7 @@ class LoginActivity : AppCompatActivity() {
         //Google Registration
 
         configureGoogleSignIn()
-
+        setupUI()
         // End Google Registration and continue after OnCreate method
 
         //Button Create Account
@@ -61,8 +59,7 @@ class LoginActivity : AppCompatActivity() {
             goToActivity<CreateAccount>()
         }
 
-        //Connexion with google
-        setupUI()
+
 
         //For show and hide the password
         ivShowPassword.setOnClickListener {
@@ -70,18 +67,16 @@ class LoginActivity : AppCompatActivity() {
             showPassword(isShowPass)
         }
         showPassword(isShowPass)
-        //For show and hide the password
 
         //Login button
         emailEt = findViewById(R.id.login_email)
         passwordEt = findViewById(R.id.login_password)
         auth = FirebaseAuth.getInstance()
-
         login_button.setOnClickListener {
 
             val email: String = emailEt.text.toString()
             val password: String = passwordEt.text.toString()
-            if (!isValideEmail(email) && !isValidePassword(password)) {
+            if (!isValideEmail(email) || !isValidePassword(password)) {
                 toast("Veuillez bien renseigner tout les champs")
             } else {
                 loginByEmailPassword(email, password)
@@ -104,6 +99,14 @@ class LoginActivity : AppCompatActivity() {
                 if (isValidePassword(it)) null else "Votre mot de passe doit contenir 8 caractères au minimums dont une lettre majuscule, une lettre miniscule, et un chiffre entre 0 et 9"
         }
 
+        //To introduce the cursor when the user click on the editText
+        login_email.setOnClickListener {
+            login_email.isCursorVisible = true
+        }
+        login_password.setOnClickListener {
+            login_password.isCursorVisible = true
+        }
+
     }
 
 
@@ -114,34 +117,17 @@ class LoginActivity : AppCompatActivity() {
                 this
             ) { task ->
                 if (task.isSuccessful) {
-                    //We look if there is an user or not
+                    //We look if the user confirmed his email
                     if (auth.currentUser!!.isEmailVerified) {
                         toast("Connected")
                         goToActivity<HomeActivity>()
                     } else {
                         toast("Verify your email before login")
                     }
-                } else {
+                } else if (task.isCanceled) {
                     toast("Connexion failed")
                 }
             }
-    }
-
-    //This method permit to remember user while he check the checkbox button
-    private fun rememberMe(email: EditText, passwordEt: EditText) {
-        val pref = PreferenceManager.getDefaultSharedPreferences(this)
-        val editor = pref.edit()
-
-        editor
-            .putString("Email", login_email.text.toString())
-            .putString("Password", login_password.text.toString())
-            .apply()
-
-        val toast =
-            Toast.makeText(applicationContext, "We will remember you!", Toast.LENGTH_LONG)
-
-        toast.setGravity(Gravity.TOP, 0, 140)
-        toast.show()
     }
 
     //This method permit tho show the password to the user while entered it
@@ -173,7 +159,7 @@ class LoginActivity : AppCompatActivity() {
         return pattern.matcher(password).matches() && !login_password.text.isNullOrEmpty()
     }
 
-    //Google SignIn
+    //Google SignIn continue
 
     //The method is used to request the user data required by your app such as the users’ ID and basic profile information, email address and Id token
     private fun configureGoogleSignIn() {

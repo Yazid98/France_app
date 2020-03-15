@@ -1,25 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <item
         android:id="@+id/profile"
         android:icon="@drawable/ic_account"
-        android:title="Profil" />
+        android:title="Profil"
+        tools:ignore="HardcodedText" />
 
     <item
         android:id="@+id/list"
         android:icon="@drawable/ic_list"
-        android:title="Procédures" />
+        android:title="Procédures"
+        tools:ignore="HardcodedText" />
 
     <item
         android:id="@+id/liens"
         android:icon="@drawable/ic_world"
-        android:title="Liens" />
-
-    <item
-        android:id="@+id/taches_secu"
-        android:icon="@drawable/ic_world"
-        android:title="Sécu"
-        android:visible="false" />
+        android:title="Liens"
+        tools:ignore="HardcodedText" />
 
 </menu>

@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentTransaction
 import androidx.viewpager.widget.ViewPager
 import com.example.france_app.Fragment.LinksFragment
-import com.example.france_app.Fragment.ListTacheSecuFragment
 import com.example.france_app.Fragment.ProceduresFragment
 import com.example.france_app.Fragment.ProfileFragment
 import com.example.france_app.R
@@ -15,11 +14,9 @@ import com.example.france_app.goToActivity
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_home_.*
 
-class HomeActivity : AppCompatActivity() {
+//This is the first activity that is load when the user start the application and already have an account
 
-    //private lateinit var profilFragment: ProfileFragment
-    //private lateinit var procedureFragment: ProceduresFragment
-    //private lateinit var linksFragment: LinksFragment
+class HomeActivity : AppCompatActivity() {
 
     // private lateinit var adapter: PagerAdapter
     private var mAuth: FirebaseAuth? = null
@@ -36,7 +33,7 @@ class HomeActivity : AppCompatActivity() {
         val proceduresFragment = ProceduresFragment()
         supportFragmentManager
             .beginTransaction()
-            .replace(R.id.procedureFragment, proceduresFragment)
+            .replace(R.id.frame_layout, proceduresFragment)
             .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
             .commit()
 
@@ -57,7 +54,6 @@ class HomeActivity : AppCompatActivity() {
                 else -> false
             }
         }
-
 
         //The addOnPageChangeListener implement method that are used for the pages.
         viewPager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
@@ -100,12 +96,10 @@ class HomeActivity : AppCompatActivity() {
         var profileFragment = ProfileFragment()
         val proceduresFragment = ProceduresFragment()
         val linksFragment = LinksFragment()
-        val listTacheSecuFragment = ListTacheSecuFragment()
 
         viewPagerAdapter.addFragment(profileFragment)
         viewPagerAdapter.addFragment(proceduresFragment)
         viewPagerAdapter.addFragment(linksFragment)
-        viewPagerAdapter.addFragment(listTacheSecuFragment)
 
         viewPager.adapter = viewPagerAdapter
     }
@@ -116,7 +110,7 @@ class HomeActivity : AppCompatActivity() {
         super.onStart()
         val user = FirebaseAuth.getInstance().currentUser
         if (user == null) {
-            goToActivity<Beginning>()
+            goToActivity<MainActivity>()
             finish()
         }
     }

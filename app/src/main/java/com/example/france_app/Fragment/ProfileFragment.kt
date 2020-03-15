@@ -35,7 +35,7 @@ class ProfileFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-//To introduce the cursor when the user click on the editText
+        //To introduce the cursor when the user click on the editText
 
         val firstName: EditText = view.findViewById(R.id.firstNameUser)
         val lastName: EditText = view.findViewById(R.id.lastNameUser)
@@ -48,7 +48,7 @@ class ProfileFragment : Fragment() {
             lastName.isCursorVisible = true
         }
 
-//End of cursor introducing
+        //End of cursor introducing
 
         //To select calendar when the user wants to choose his birthday
 

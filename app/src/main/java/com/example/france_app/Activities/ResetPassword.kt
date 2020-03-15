@@ -21,6 +21,10 @@ class ResetPassword : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_reset_password)
 
+        et_email.setOnClickListener {
+            et_email.isCursorVisible = true
+        }
+
         btn_reset_password.setOnClickListener {
             resetPassword()
         }

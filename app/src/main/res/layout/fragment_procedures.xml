@@ -27,27 +27,30 @@
             <Button
                 android:id="@+id/assuranceMaladie"
                 android:layout_width="338dp"
+                android:background="@drawable/design_cardview"
                 android:layout_height="76dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="60dp"
-                android:text="ASSURANCE MALADIE">
-
-            </Button>
+                android:text="ASSURANCE MALADIE"
+                android:textColor="@color/colorWhite" />
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/complementaireSante"
+                android:background="@drawable/design_cardview"
                 android:layout_width="338dp"
                 android:layout_height="76dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="60dp">
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/design_cardview"
+                    android:textColor="@color/colorWhite"
                     android:layout_gravity="center"
                     android:gravity="center"
                     android:text="COMPLEMENTAIRE SANTE"
-                    android:textSize="25dp" />
+                    android:textSize="15dp" />
 
             </androidx.cardview.widget.CardView>
 
@@ -59,12 +62,14 @@
                 android:layout_marginTop="60dp">
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/design_cardview"
                     android:layout_gravity="center"
+                    android:textColor="@color/colorWhite"
                     android:gravity="center"
                     android:text="CAF"
-                    android:textSize="25dp" />
+                    android:textSize="15dp" />
 
             </androidx.cardview.widget.CardView>
 
@@ -76,12 +81,14 @@
                 android:layout_marginTop="60dp">
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/design_cardview"
+                    android:textColor="@color/colorWhite"
                     android:layout_gravity="center"
                     android:gravity="center"
                     android:text="VALIDATION VISA"
-                    android:textSize="25dp" />
+                    android:textSize="15dp" />
 
             </androidx.cardview.widget.CardView>
 
@@ -93,29 +100,33 @@
                 android:layout_marginTop="60dp">
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/design_cardview"
+                    android:textColor="@color/colorWhite"
                     android:layout_gravity="center"
                     android:gravity="center"
                     android:text="ASSURANCE HABITATION"
-                    android:textSize="25dp" />
+                    android:textSize="15dp" />
 
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/primeActivite"
-                android:layout_width="365dp"
-                android:layout_height="119dp"
+                android:layout_width="338dp"
+                android:layout_height="76dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="60dp">
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/design_cardview"
+                    android:textColor="@color/colorWhite"
                     android:layout_gravity="center"
                     android:gravity="center"
                     android:text="PRIME D'ACTIVITE"
-                    android:textSize="25dp" />
+                    android:textSize="15dp" />
 
             </androidx.cardview.widget.CardView>
 
@@ -127,12 +138,14 @@
                 android:layout_marginTop="60dp">
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/design_cardview"
+                    android:textColor="@color/colorWhite"
                     android:layout_gravity="center"
                     android:gravity="center"
                     android:text="COMPTE BANCAIRE"
-                    android:textSize="25dp" />
+                    android:textSize="15dp" />
 
             </androidx.cardview.widget.CardView>
 
@@ -144,15 +157,24 @@
                 android:layout_marginTop="60dp">
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/design_cardview"
+                    android:textColor="@color/colorWhite"
                     android:layout_gravity="center"
                     android:gravity="center"
                     android:text="CARTE BANCAIRE"
-                    android:textSize="25dp" />
+                    android:textSize="15dp" />
 
             </androidx.cardview.widget.CardView>
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="60dp"
+                android:text=""
+                android:textSize="20dp" />
         </LinearLayout>
 
     </ScrollView>
