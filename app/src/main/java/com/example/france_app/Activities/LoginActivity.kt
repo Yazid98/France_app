@@ -206,7 +206,7 @@ class LoginActivity : AppCompatActivity() {
             if (it.isSuccessful) {
                 goToActivity<HomeActivity>()
             } else {
-                toast("Google sign in failed:(")
+                toast("Google sign in faild:(")
             }
         }
     }
