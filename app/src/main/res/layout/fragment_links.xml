@@ -12,15 +12,15 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:layout_width="221dp"
-            android:layout_height="141dp"
+            android:layout_width="199dp"
+            android:layout_height="32dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
-            android:fontFamily="@font/cardo"
+            android:fontFamily="@font/junge"
             android:gravity="center"
             android:text="Links fragment"
             android:textSize="25dp"

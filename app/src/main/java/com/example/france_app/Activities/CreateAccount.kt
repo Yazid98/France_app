@@ -191,7 +191,7 @@ class CreateAccount : AppCompatActivity() {
     //End save information in database
 
 
-    //Function for validation Email and Password
+    // Functions for validation Email and Password
 
     //Function for specific email address
     private fun isValideEmail(email: String): Boolean {
